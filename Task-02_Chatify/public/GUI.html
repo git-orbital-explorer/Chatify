@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chatify</title>
+  <link rel="stylesheet" href="chat-style.css" />
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    /* Hide native scrollbar completely */
+    #chatRoom::-webkit-scrollbar {
+      display: none;
+    }
+    #chatRoom {
+      -ms-overflow-style: none;  /* IE/Edge */
+      scrollbar-width: none;     /* Firefox */
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with board selection and icons -->
+  <div class="header">
+    <select id="boardSelect" class="board-name" aria-label="Select board">
+      <option value="general">#general</option>
+      <option value="random">#random</option>
+      <option value="tech">#tech</option>
+    </select>
+    <div class="icon" title="Friends/Notifications" tabindex="0">&#10084;</div>
+    <div class="icon" title="Settings/Menu" tabindex="0">&#9776;</div>
+  </div>
+
+  <!-- Chat container with side scroll panel -->
+  <div class="chat-container">
+    <div class="side-panel">
+      <div class="scroll-up" onclick="scrollChat(-1)" title="Scroll Up">&#11014;</div>
+      <div class="scroll-bar"></div>
+      <div class="scroll-down" onclick="scrollChat(1)" title="Scroll Down">&#11015;</div>
+    </div>
+
+    <div class="chat-room" id="chatRoom" role="log" aria-live="polite">
+      <!-- Messages will appear here -->
+    </div>
+  </div>
+
+  <!-- Footer input bar -->
+  <div class="footer">
+    <input class="message-input" type="text" placeholder="Enter message" aria-label="Type your message" />
+    <button class="send-btn" aria-label="Send message">&#128172;</button>
+  </div>
+
+  <script src="chat-client.js"></script>
+</body>
+</html>
